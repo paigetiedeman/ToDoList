@@ -8,16 +8,14 @@ namespace Palindrome.Models
     {
       string lowerWord = word.ToLower();
       char[] array = lowerWord.ToCharArray();
-      Array.Reverse(array);
-      string reverseWord = string.Join("", array);
-      if (lowerWord == reverseWord)
+      for (int i = 0; i < array.Length; i++)
       {
-        return true;
+        if (array[i] != array[(array.Length - 1) - i])
+        {
+          return false;
+        }
       }
-      else
-      {
-        return false;
-      }
+      return true;
     }
   }
 }
